@@ -1,11 +1,11 @@
 {
-    "name": "chart",
+    "name": "graph",
     "version": "0.0.1",
     "description": "",
     "main": "./src",
     "type": "module",
     "scripts": {
-      "chart": "node ./src",
+      "graph": "node ./src",
       "test": "echo \"Error: no test specified\" && exit 1"
     }
   }

@@ -1,15 +1,12 @@
 import fs from "fs";
 
-let logName = "Log.txt";
-
-export function openLogFile(name = logName) {
-  logName = name;
-  fs.writeFile(`./Logs/${logName}`, "", (err) => {
+export function openLogFile(name) {
+  fs.writeFile(`./Logs/${name}`, "", (err) => {
     if (err) throw err;
   });
 }
 
-export function writeInFile(data) {
+export function writeInFile(data, logLocation) {
   let txt = "";
   switch (typeof data) {
     case "string":
@@ -23,5 +20,5 @@ export function writeInFile(data) {
       break;
   }
 
-  fs.appendFileSync(`./Logs/${logName}`, txt);
+  fs.appendFileSync(`./Logs/${logLocation}`, txt);
 }
