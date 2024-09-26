@@ -20,6 +20,19 @@ function makeGraph(colums, rows){
     return graph
 }
 
+function expandGraph(graph, newColums, rows){
+    for (let i=0; i<newColums; i++){
+        graph.unshift(["  "])
+    }
+
+    for (let i=0; i < newColums; i++){
+        for (let x=0; x < rows-1; x++){
+            graph[i].unshift("  ")
+        }
+    }
+    return graph
+}
+
 function plotGraph(graph, cordinate1, cordinate2, colur, maxX){
     let newCordinate1 = maxX - cordinate1
     if (graph[newCordinate1][cordinate2-1] == "  "){
@@ -40,6 +53,8 @@ function plotGraph(graph, cordinate1, cordinate2, colur, maxX){
 
 let graph = makeGraph(maxY, maxX)
 
-plotGraph(graph, [5], [4], "🟩", maxY)
+plotGraph(graph, [10], [5], "🟩", maxY)
 
 writeInFile(graph, "ChartLog.txt");
+writeInFile("", "ChartLog.txt")
+writeInFile(expandGraph(graph, 2, maxX), "ChartLog.txt")
